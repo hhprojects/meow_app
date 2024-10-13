@@ -1,0 +1,6 @@
+# .gitignore
+
+# Ignore environment variable files
+.env
+config.py
+secrets.py

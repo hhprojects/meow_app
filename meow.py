@@ -10,8 +10,8 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static/uploads/applicants'
 app.config['SHORTLISTED_FOLDER'] = 'static/uploads/shortlisted/'
 
-API_KEY = "AIzaSyD9PA60J0TJpAHWjDqKHfA2nRZ4e03yrrQ"
-SEARCH_ENGINE_ID = "b2b678fe5d1ef4f44"
+API_KEY = os.getenv('API_KEY')
+SEARCH_ENGINE_ID = os.getenv('SEARCH_ENGINE_ID')
 
 # Step 1: Home page - Resume upload
 @app.route('/', methods=['GET', 'POST'])
