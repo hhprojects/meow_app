@@ -20,5 +20,15 @@
             <input type="submit" value="Upload">
         </form>
     </div>
+    
+    <br>
+
+    <div class="container">
+        <h1>Search for a course for your employees to attend</h1>
+        <form action="{{ url_for('search') }}" method="GET">
+            <input type="text" name="query" placeholder="Search for a course to attend" required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 import textacy
 import textacy.preprocessing as tp
 import spacy
-from fuzzywuzzy import fuzz, process
+from fuzzywuzzy import fuzz
 import re
 
 nlp = spacy.load("en_core_web_sm")

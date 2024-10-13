@@ -1,12 +1,18 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 import os
 import shutil
 import pdf_to_csv
 import shortlist_applicants 
+import requests
+import find_employees
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static/uploads/applicants'
 app.config['SHORTLISTED_FOLDER'] = 'static/uploads/shortlisted/'
+
+API_KEY = "AIzaSyD9PA60J0TJpAHWjDqKHfA2nRZ4e03yrrQ"
+SEARCH_ENGINE_ID = "b2b678fe5d1ef4f44"
+
 # Step 1: Home page - Resume upload
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -59,6 +65,39 @@ def filter_resumes(job_role, job_desc):
     # For simplicity, we return all uploaded resumes.
     resume_files = os.listdir(app.config['SHORTLISTED_FOLDER'])
     return resume_files
+
+@app.route('/search', methods=['GET'])
+def search():
+    query = request.args.get('query')  # Get the search query from the request
+    if not query:
+        return jsonify({'error': 'Query parameter is required'}), 400
+    
+    courses_query = query + " Courses"
+    # Construct the request URL
+    url = f'https://customsearch.googleapis.com/customsearch/v1?key={API_KEY}&cx={SEARCH_ENGINE_ID}&q={courses_query}'
+
+    # Make the API request
+    response = requests.get(url)
+    
+    search_results = []
+    
+    # Check if the response is successful
+    if response.status_code == 200:
+        data = response.json()
+        items = data.get('items', [])  # Get the items (search results)
+        
+        # Extract the 'formattedUrl' and 'title' for each item
+        for item in items:
+            result = {
+                'title': item.get('title'),
+                'formattedUrl': item.get('formattedUrl')
+            }
+            search_results.append(result)
+
+        missing_skills_employees = find_employees.check_missing_skills(query)
+        return render_template('search.html', results=search_results, query=courses_query, missing_skills_employees=missing_skills_employees)
+    else:
+        return jsonify({'error': 'Error fetching results'}), response.status_code
 
 if __name__ == '__main__':
     if not os.path.exists(app.config['UPLOAD_FOLDER']):

@@ -27,3 +27,10 @@ Familiarity with IT security best practices and cybersecurity measures.
 """
 passed_applicants = shortlist_applicants.shortlist_applicants(job_description)
 print([i[1] for i in passed_applicants])
+
+import find_employees
+
+query = "Customer Support"
+
+missing_skills_employees = find_employees.check_missing_skills(query)
+print(missing_skills_employees)

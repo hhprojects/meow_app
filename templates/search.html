@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results for {{ query }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="logo-container">
+        <a href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='psa-international-vector-logo.png') }}" alt="PSA Logo" class="logo">
+        </a>
+    </div>
+    <div class="container" id="test">
+        <div>
+            <h1>Recommended {{ query }} websites for employees</h1>
+        
+            {% if results %}
+                <ul>
+                {% for result in results %}
+                    <li>
+                        <a href="{{ result.formattedUrl }}">{{ result.title }}</a>
+                        <p>{{ result.snippet }}</p>
+                    </li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p>No results found for "{{ query }}".</p>
+            {% endif %}
+            
+            </div>
+            <div>
+                <h1>Employees who might need to attend {{ query }}</h1>
+                <ul>
+                    {% for employee in missing_skills_employees %}
+                    <li>
+                        <a href="{{ url_for('static', filename='uploads/employees/' + employee) }}" target="_blank">{{ employee }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+    </div>
+</body>
+</html>
