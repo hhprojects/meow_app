@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filtered Resumes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="logo-container" href="{{ url_for('index') }}">
+        <a href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='psa-international-vector-logo.png') }}" alt="PSA Logo" class="logo">
+        </a>
+    </div>
+
+    <div class="container">
+        <h1>Filtered Resumes for {{ job_role }}</h1>
+        <ul>
+            {% for resume in resumes %}
+            <li>
+                <a href="{{ url_for('static', filename='uploads/shortlisted/' + resume) }}" target="_blank">{{ resume }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

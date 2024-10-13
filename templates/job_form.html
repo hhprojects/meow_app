@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Role & Description</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="logo-container">
+        <a href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='psa-international-vector-logo.png') }}" alt="PSA Logo" class="logo">
+        </a>
+    </div>
+
+    <div class="container">
+        <h1>Enter Job Role & Description</h1>
+        <form method="POST">
+            <label for="job_role">Job Role:*</label>
+            <input type="text" name="job_role" placeholder="for eg, Software Engineer" required><br>
+
+            <label for="job_desc">Job Description:*</label>
+            <textarea name="job_desc" placeholder="for eg, Develop programs" required></textarea><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>

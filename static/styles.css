@@ -1,0 +1,137 @@
+/* General reset for margin, padding, and box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set the font for the entire site */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+    padding-top: 50px;  /* Space for the logo */
+}
+
+/* Container to center the content */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Logo container styles */
+.logo-container {
+    position: absolute;   /* Positions the logo relative to the page */
+    top: 10px;
+    left: 10px;
+}
+
+.logo {
+    width: 150px;  /* Adjust the width of the logo */
+    height: auto;  /* Keep the aspect ratio */
+    cursor: pointer;  /* Change cursor to pointer when hovering over the logo */
+    margin: 20px;  /* Add some space around the logo */
+}
+
+/* Header styles */
+h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #4CAF50;
+}
+
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Label and input styles */
+label {
+    font-weight: bold;
+}
+
+input[type="text"], input[type="file"], button {
+    padding: 10px;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"]:focus, input[type="file"]:focus, button:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Button styles */
+button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* List for displaying the filtered results */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #e0e0e0;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1, h2 {
+        font-size: 1.5em;
+    }
+
+    input[type="text"], input[type="file"], button {
+        padding: 8px;
+    }
+
+    .logo {
+        width: 80px;  /* Adjust logo size for mobile */
+    }
+}
+
+/* Style the placeholder text */
+input::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+textarea::placeholder {
+    color: #888;
+    font-style: italic;
+}
