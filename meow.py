@@ -52,7 +52,7 @@ def results():
     # Implement your resume filtering logic here
     resumes = filter_resumes(job_role, job_desc)
 
-    return render_template('results.html', resumes=resumes)
+    return render_template('results.html', resumes=resumes, job_role=job_role)
 
 def filter_resumes(job_role, job_desc):
     # Placeholder function: Implement your filtering logic here
