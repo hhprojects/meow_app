@@ -8,7 +8,8 @@ The aim is to enhance PSA's ability to nurture a highly engaged, diverse workfor
 
 
 # Idea PORTential: Automated Resume to Job Matching
-## Objective: Matching current employees within PSA with applicants applying for job roles in PSA, optimizing hiring and internal mobility. Promote internal mobility by matching existing employees to new opportunities based on their skill sets and growth potential.
+## Objective: 
+Matching current employees within PSA with applicants applying for job roles in PSA, optimizing hiring and internal mobility. Promote internal mobility by matching existing employees to new opportunities based on their skill sets and growth potential.
 
 ## Methodology:
 Using AI algorithms to parse resumes and identify relevant work experiences, skill sets, and qualifications. 
